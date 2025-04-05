@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Игровое поле</title>
+</head>
+<body>
+<h1>Игровое поле</h1>
+<table style="border-collapse: collapse">
+    <tr th:each="row :${board}">
+        <td th:each="cell :${row}" style="border: 1px solid black; padding: 5px;">
+            <span th:text="${cell}"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

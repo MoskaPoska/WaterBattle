@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок сообщения</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mode.css">
+</head>
+<body>
+<div id="game-container">
+    <div id="name-input-container">
+<!--        <input type="text" id="name-input" placeholder="Введите ваше имя" />-->
+        <button id="start-game-button">Начать игру</button>
+    </div>
+    <div id="message-box">Добро пожаловать в Морской бой!</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function ()
+    {
+        const startGameButton = document.getElementById('start-game-button');
+        if(startGameButton)
+        {
+            startGameButton.addEventListener("click", function ()
+            {
+                window.location.href = '/board';
+            })
+        }
+    });
+</script>
+</body>
+</html>
