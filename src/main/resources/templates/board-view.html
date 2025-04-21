@@ -1,16 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="ru">
 <head>
-    <title>Игровое поле</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морской бой</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Игровое поле</h1>
-<table style="border-collapse: collapse">
-    <tr th:each="row :${board}">
-        <td th:each="cell :${row}" style="border: 1px solid black; padding: 5px;">
-            <span th:text="${cell}"></span>
-        </td>
-    </tr>
-</table>
+<div class="container">
+    <section id="ship-placement-menu">
+        <h3>Расстановка кораблей</h3>
+        <div class="ship-type-selection">
+            <h4>Палубность</h4>
+            <div>
+                <input type="radio" id="ship-1" name="ship-size" value="1" checked>
+                <label for="ship-1">Однопалубный, осталось - <span id="ships-left-1">4</span></label>
+            </div>
+            <div>
+                <input type="radio" id="ship-2" name="ship-size" value="2">
+                <label for="ship-2">Двухпалубный, осталось - <span id="ships-left-2">3</span></label>
+            </div>
+            <div>
+                <input type="radio" id="ship-3" name="ship-size" value="3">
+                <label for="ship-3">Трехпалубный, осталось - <span id="ships-left-3">2</span></label>
+            </div>
+            <div>
+                <input type="radio" id="ship-4" name="ship-size" value="4">
+                <label for="ship-4">Четырехпалубный, осталось - <span id="ships-left-4">1</span></label>
+            </div>
+        </div>
+        <div class="ship-orientation">
+            <h4>Ориентация корабля</h4>
+            <div>
+                <input type="radio" id="orientation-vertical" name="orientation" value="vertical" checked>
+                <label for="orientation-vertical">Вертикальная</label>
+            </div>
+            <div>
+                <input type="radio" id="orientation-horizontal" name="orientation" value="horizontal">
+                <label for="orientation-horizontal">Горизонтальная</label>
+            </div>
+        </div>
+        <button id="clear-ships-btn">Убрать все корабли</button>
+    </section>
+
+    <section class="boards-container">
+        <div class="player-board">
+            <h2 id="player-name"></h2>
+            <div id="my-board" class="board">
+            </div>
+        </div>
+        <div class="enemy-board hidden">
+            <h2>Поле противника</h2>
+            <div id="enemy-board" class="board">
+            </div>
+        </div>
+    </section>
+
+    <section class="controls">
+        <div id="message-area">Ожидание подключения...</div>
+        <div class="buttons">
+            <button id="start-game-btn" disabled>Подтвердить расстановку</button>
+            <button id="disconnect-btn" disabled>Выйти</button>
+        </div>
+    </section>
+</div>
+<script src="/js/script.js"></script>
 </body>
 </html>
